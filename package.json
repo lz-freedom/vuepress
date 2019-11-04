@@ -10,5 +10,8 @@
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.5.1",
     "vuepress": "^1.2.0"
+  },
+  "dependencies": {
+    "address": "^1.1.2"
   }
 }

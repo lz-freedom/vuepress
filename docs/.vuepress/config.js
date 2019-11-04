@@ -1,8 +1,22 @@
+/*方法1*/
+const address = require('address')
+const localhost = address.ip() || 'localhost'
+
+/*方法2*/
+// const os = require('os')
+// let localhost = ''
+// try {
+//   const network = os.networkInterfaces()
+//   localhost = network[Object.keys(network)[0]][1].address
+// } catch (e) {
+//   localhost = 'localhost';
+// }
 module.exports = {
     title:"HUGH",
     description:"胡晓军的个人博客",
     // dest:'./dist',//默认vuepress下面
     port:'8080',
+    host:localhost,
     head:[
         ['link',{rel:'icon',href:'/favicon.ico'}]
     ],
@@ -18,50 +32,8 @@ module.exports = {
         },
     ],
     themeConfig: {
-        nav: [
-            { text: '首页', link: '/' },
-            {
-                text: '文章',
-                items:[
-                    { text: '抄写' , link:'/note/'},
-                    { text: '照片' , link:'/photo/'}
-                ]
-            },
-            { text: '茶社', link: '/girlfriend/'}
-        ],
-        sidebar: {
-            '/note/': [
-                {
-                    title:'note',
-                    collapsable: true,
-                    children:[
-                        '',
-                    ]
-                },
-                {
-                    title:'js',
-                    collapsable: true,
-                    children:[
-                        '',
-                    ]
-                },
-                {
-                    title:'css',
-                    collapsable: true,
-                    children:[
-                        '',
-                    ]
-                },
-                {
-                    title:'html',
-                    collapsable: true,
-                    children:[
-                        '',
-                    ]
-                },
-            ],
-            '/webgl/': ['']
-        },
+        nav:require('./nav'),
+        sidebar: require('./sidebar'),
         sidebarDepth: 2,
         lastUpdated: 'Last Updated',
         searchMaxSuggestoins: 10,
@@ -73,6 +45,9 @@ module.exports = {
         },
         editLinks: true,
         editLinkText: '在 GitHub 上编辑此页 ！'
-    }
+    },
+    // extraWatchFiles:[
+    //     '/config.js'
+    // ]
 
 }
