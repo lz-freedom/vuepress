@@ -1,5 +1,3 @@
-module.exports = [
-    ['/note/css/', 'css'],
-    ['/note/html/', 'html'],
-    ['/note/js/', 'js']
-]
+module.exports = {
+    '/note/':require('../note/note')
+}

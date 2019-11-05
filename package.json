@@ -2,13 +2,15 @@
   "name": "vuepress",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.5.1",
+    "path": "^0.12.7",
     "vuepress": "^1.2.0"
   },
   "dependencies": {

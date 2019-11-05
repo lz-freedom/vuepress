@@ -1,23 +1,15 @@
-module.exports=[
+module.exports = [
+    'css',
+    'html',
+    ['js', 'js'],//[link,text]
     {
-        title:'第一个',
-        collapsable: true,
-        children:[
-            '/note/css',
-        ]
-    },
-    {
-        title:'第二个',
-        collapsable: true,
-        children:[
-            '/note/js',
-        ]
-    },
-    {
-        title:'第三个',
-        collapsable: true,
-        children:[
-            '/note/html',
-        ]
+        title: 'vue',   // 必要的
+        path: '/note/vue',      // 可选的, 应该是一个绝对路径
+        collapsable: false, // 可选的, 默认值是 true,
+        sidebarDepth: 1,    // 可选的, 默认值是 1
+        // children: [
+        //     '/'
+        // ]
     }
+
 ]
