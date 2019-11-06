@@ -25,13 +25,30 @@ module.exports = {
     serviceWorker: true ,// 是否开启 PWA
     base: '/',
     markdown: {
-        lineNumbers: false // 代码块显示行号
+        lineNumbers: false, // 代码块显示行号
+        // markdown-it-anchor 的选项
+        anchor: { permalink: false },
+        // markdown-it-toc 的选项
+        toc: { includeLevel: [1, 2] },
+        extendMarkdown: md => {
+            // 使用更多的 markdown-it 插件!
+            //md.use(require('markdown-it-xxx'))
+        }
     },
+
     plugins: [
-        '@vuepress/blog',
+        ['@vuepress/blog',
         {
             /* options */
-        },
+        },],
+        [
+            'vuepress-plugin-clean-urls',
+            {
+                normalSuffix: '/',
+                indexSuffix: '/',
+                notFoundPath: '/404.html',
+            },
+        ],
     ],
     themeConfig: {
         nav:require('./nav'),
@@ -65,7 +82,7 @@ module.exports = {
         // 假如文档放在一个特定的分支下：master
         docsBranch: 'master',
         // 默认为 "Edit this page"
-        editLinkText: '帮助我们改善此页面！'
+        editLinkText: 'Git编辑'
     },
     configureWebpack: {
         resolve: {
@@ -73,9 +90,11 @@ module.exports = {
                 '@img': path.join(__dirname, './public/'),
             }
         }
-    }
+    },
+    evergreen:true,
     // extraWatchFiles:[
     //     '/config.js'
     // ]
+
 
 }
